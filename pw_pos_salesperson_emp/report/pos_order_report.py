@@ -5,7 +5,7 @@ from odoo import models, fields
 class PosOrderReport(models.Model):
     _inherit = "report.pos.order"
 
-    saleperson_id = fields.Many2one('res.users', string='Salesperson', readonly=True)
+    saleperson_id = fields.Many2one('hr.employee', string='Salesperson', readonly=True)
 
     def _select(self):
         return super(PosOrderReport, self)._select() + ',l.user_id AS saleperson_id'
